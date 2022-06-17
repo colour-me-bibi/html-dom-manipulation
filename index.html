@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function replaceImages() {
+        console.log("replaceImages was called");
+
+        var images = document.body.getElementsByTagName("img");
+        console.log(`Found ${images.length} images`, images);
+
+        for (var i = 0; i < images.length; i++) {
+          console.log(images[i].alt);
+          var text = document.createTextNode(images[i].alt);
+          images[i].parentNode.replaceChild(text, images[i]);
+        }
+      }
+    </script>
+
+    <style>
+      img {
+        width: 200px;
+        height: auto;
+      }
+      button {
+        margin-top: 10px;
+        width: 200px;
+        height: 50px;
+        background-color: #4CAF50;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg"
+      alt="cat"
+    />
+    <img
+      src="https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-800x825.jpg"
+      alt="dog"
+    />
+    <img
+      src="https://letstalkscience.ca/sites/default/files/2019-10/Snake_with_open_mouth.jpg"
+      alt="snake"
+    />
+    <button onclick="replaceImages()">Click Me</button>
+  </body>
+</html>
